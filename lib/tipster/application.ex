@@ -18,7 +18,7 @@ defmodule Tipster.Application do
       TipsterWeb.Endpoint,
       # Start a worker by calling: Tipster.Worker.start_link(arg)
       # {Tipster.Worker, arg}
-      Tipster.StatusCheckerSupervisor,
+      Tipster.StatusCheckerSupervisor
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

@@ -41,6 +41,7 @@ defmodule TipsterWeb.EndpointLive do
 
   defp update_socket(socket, endpoint) do
     chronological_pings = Enum.sort(endpoint.pings, :desc)
+
     socket
     |> assign(:endpoint, endpoint)
     |> assign(:chronological_pings, chronological_pings)

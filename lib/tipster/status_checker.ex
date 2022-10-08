@@ -17,7 +17,7 @@ defmodule Tipster.StatusChecker do
   end
 
   @impl true
-  def handle_info(:poll, state=%{endpoint_id: endpoint_id}) do
+  def handle_info(:poll, state = %{endpoint_id: endpoint_id}) do
     endpoint = Endpoints.get_endpoint(endpoint_id)
     status = get_status(endpoint.url)
 

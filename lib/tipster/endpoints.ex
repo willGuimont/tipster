@@ -6,9 +6,11 @@ defmodule Tipster.Endpoints do
   import Ecto.Query
 
   def create_endpoint(params) do
-    {:ok, endpoint} = %Endpoint{}
-    |> Endpoint.changeset(params)
-    |> Repo.insert()
+    {:ok, endpoint} =
+      %Endpoint{}
+      |> Endpoint.changeset(params)
+      |> Repo.insert()
+
     StatusCheckerSupervisor.start_child(endpoint)
   end
 
@@ -22,6 +24,14 @@ defmodule Tipster.Endpoints do
     Repo.all(query) |> Repo.preload(:pings)
   end
 
+  @spec add_ping(
+          %{
+            :__struct__ => atom | %{:__changeset__ => any, optional(any) => any},
+            :pings => any,
+            optional(atom) => any
+          },
+          any
+        ) :: any
   def add_ping(endpoint, ping) do
     endpoint
     |> Ecto.Changeset.change(pings: [ping | endpoint.pings])

@@ -33,6 +33,7 @@ defmodule TipsterWeb.EndpointStatusLive do
     endpoint_id = endpoint.id
     has_ping = length(endpoint.pings) > 0
     last_ping = List.last(endpoint.pings)
+
     socket
     |> assign(:endpoint_id, endpoint_id)
     |> assign(:endpoint, endpoint)
