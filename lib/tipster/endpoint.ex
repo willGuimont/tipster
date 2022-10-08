@@ -10,5 +10,8 @@ defmodule Tipster.Endpoint do
   def changeset(item, params) do
     item
     |> cast(params, [:name, :url])
+    |> validate_required([:name, :url])
+    |> validate_length(:name, min: 1)
+    |> validate_length(:url, min: 1)
   end
 end

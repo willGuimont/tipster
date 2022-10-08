@@ -10,6 +10,7 @@ defmodule Tipster.Ping do
 
   def changeset(item, params) do
     item
-    |> cast(params, [:name, :url])
+    |> cast(params, [:status, :timestamp, :endpoint])
+    |> validate_required([:status, :timestamp, :endpoint])
   end
 end
