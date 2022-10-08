@@ -5,13 +5,22 @@ defmodule TipsterWeb.PageController do
   alias Tipster.Endpoint
 
   def index(conn, _params) do
+    render(conn, "index.html")
+  end
+
+  def endpoints(conn, _params) do
     endpoints = Endpoints.list_endpoints()
     changeset = Endpoint.changeset(%Endpoint{}, %{})
-    render(conn, "index.html", endpoints: endpoints, changeset: changeset)
+    render(conn, "endpoints.html", endpoints: endpoints, changeset: changeset)
   end
 
   def create(conn, %{"endpoint" => endpoint_params}) do
     Endpoints.create_endpoint(endpoint_params)
     redirect(conn, to: "/endpoints")
+  end
+
+  def view(conn, %{"endpoint_id" => endpoint_id}) do
+    endpoint = Endpoints.get_endpoint(endpoint_id)
+    render(conn, "view.html", endpoint: endpoint)
   end
 end

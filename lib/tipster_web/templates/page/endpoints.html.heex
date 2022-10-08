@@ -1,0 +1,22 @@
+<h2>Endpoints</h2>
+
+<%= form_for @changeset, Routes.page_path(@conn, :create), fn f -> %>
+  <p>Monitor a new endpoint</p>
+  <label>
+    Name: <%= text_input f, :name %>
+    URL: <%= text_input f, :url %>
+  </label>
+
+  <%= submit "Submit" %>
+<% end %>
+
+
+<hr>
+<%= for endpoint <- @endpoints do %>
+  <%= link to: Routes.page_path(@conn, :view, endpoint.id) do %>
+    <h3><%= endpoint.name %></h3>
+  <% end %>
+  <%= link endpoint.url, to: endpoint.url, target: "_blank", rel: "noopener noreferrer" %>
+  <p>TODO show status</p>
+  <hr>
+<% end %>
