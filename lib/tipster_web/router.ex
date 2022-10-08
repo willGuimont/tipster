@@ -20,7 +20,7 @@ defmodule TipsterWeb.Router do
     get "/", PageController, :index
     get "/endpoints", PageController, :endpoints
     post "/endpoints", PageController, :create
-    get "/endpoints/:endpoint_id", PageController, :view
+    live "/endpoints/:endpoint_id", EndpointLive
   end
 
   # Other scopes may use custom stacks.

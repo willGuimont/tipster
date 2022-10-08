@@ -15,9 +15,10 @@ defmodule Tipster.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: Tipster.PubSub},
       # Start the Endpoint (http/https)
-      TipsterWeb.Endpoint
+      TipsterWeb.Endpoint,
       # Start a worker by calling: Tipster.Worker.start_link(arg)
       # {Tipster.Worker, arg}
+      Tipster.StatusCheckerSupervisor,
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

@@ -25,7 +25,9 @@
             <% end %>
           </ul>
         </nav>
-        <h1>Tipster</h1>
+        <%= link to: Routes.page_path(@conn, :index) do %>
+          <h1>Tipster</h1>
+        <% end %>
       </section>
     </header>
     <%= @inner_content %>

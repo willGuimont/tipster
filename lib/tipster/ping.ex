@@ -4,13 +4,13 @@ defmodule Tipster.Ping do
 
   schema "pings" do
     field :status, :string
-    field :timestamp, :utc_datetime
     belongs_to :endpoint, Tipster.Endpoint
+    timestamps()
   end
 
   def changeset(item, params) do
     item
-    |> cast(params, [:status, :timestamp, :endpoint])
-    |> validate_required([:status, :timestamp, :endpoint])
+    |> cast(params, [:status])
+    |> validate_required([:status])
   end
 end

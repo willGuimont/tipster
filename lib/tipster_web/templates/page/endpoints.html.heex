@@ -13,10 +13,10 @@
 
 <hr>
 <%= for endpoint <- @endpoints do %>
-  <%= link to: Routes.page_path(@conn, :view, endpoint.id) do %>
+  <%= link to: Routes.live_path(@conn, TipsterWeb.EndpointLive, endpoint.id) do %>
     <h3><%= endpoint.name %></h3>
   <% end %>
   <%= link endpoint.url, to: endpoint.url, target: "_blank", rel: "noopener noreferrer" %>
-  <p>TODO show status</p>
+  <%= live_render(@conn, TipsterWeb.EndpointStatusLive, session: %{"endpoint_id" => endpoint.id}) %>
   <hr>
 <% end %>

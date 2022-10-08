@@ -18,9 +18,4 @@ defmodule TipsterWeb.PageController do
     Endpoints.create_endpoint(endpoint_params)
     redirect(conn, to: "/endpoints")
   end
-
-  def view(conn, %{"endpoint_id" => endpoint_id}) do
-    endpoint = Endpoints.get_endpoint(endpoint_id)
-    render(conn, "view.html", endpoint: endpoint)
-  end
 end
