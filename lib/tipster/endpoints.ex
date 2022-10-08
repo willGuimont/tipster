@@ -1,4 +1,3 @@
-# TODO error handling
 defmodule Tipster.Endpoints do
   alias Tipster.Endpoint
   alias Tipster.Repo
@@ -27,12 +26,10 @@ defmodule Tipster.Endpoints do
     endpoint
     |> Ecto.Changeset.change(pings: [ping | endpoint.pings])
     |> Repo.update()
-    
   end
 
   def delete_endpoint(id) do
     endpoint = Repo.get(Endpoint, id)
     Repo.delete(endpoint)
   end
-
 end
