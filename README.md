@@ -5,6 +5,7 @@ Create database in Docker:
 ```shell
 docker run --name postgres -e POSTGRES_PASSWORD=postgres -p 5432:5432 --rm -d postgres
 mix ecto.create
+mix ecto.migrate
 ```
 
 To start your Phoenix server:
