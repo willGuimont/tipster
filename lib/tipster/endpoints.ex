@@ -17,9 +17,9 @@ defmodule Tipster.Endpoints do
     Repo.delete(endpoint)
   end
 
-  def create_endpoint(name, url) do
+  def create_endpoint(params) do
     %Endpoint{}
-    |> Endpoint.changeset(%{name: name, url: url})
+    |> Endpoint.changeset(params)
     |> Repo.insert()
   end
 end

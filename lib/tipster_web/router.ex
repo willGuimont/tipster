@@ -17,7 +17,8 @@ defmodule TipsterWeb.Router do
   scope "/", TipsterWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
+    get "/endpoints", PageController, :index
+    post "/endpoints", PageController, :create
   end
 
   # Other scopes may use custom stacks.
