@@ -1,5 +1,9 @@
 # Tipster
 
+Monitor your websites' health.
+
+## Run
+
 Create database in Docker:
 
 ```shell
